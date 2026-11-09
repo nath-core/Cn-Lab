@@ -32,6 +32,8 @@ int main(){
         ip_header = (struct iphdr *)(packet_buffer + sizeof(struct ethhdr));
 
         printf("\nPacket Received\n");
+    printf("Source Address : %02X:%02X:%02X:%02X:%02X:%02X \n",ethernet_header->h_source[0],ethernet_header->h_source[1],ethernet_header->h_source[2],ethernet_header->h_source[3],ethernet_header->h_source[4],ethernet_header->h_source[5]);
+    printf("Destination address : %02X:%02X:%02X:%02X:%02X:%02X \n",ethernet_header->h_dest[0],ethernet_header->h_dest[1],ethernet_header->h_dest[1],ethernet_header->h_dest[3],ethernet_header->h_dest[4],ethernet_header->h_dest[5]);
         printf("Source IP      : %s\n", inet_ntoa(*(struct in_addr *)&ip_header->saddr));
         printf("Destination IP : %s\n", inet_ntoa(*(struct in_addr *)&ip_header->daddr));
         printf("Protocol       : %d\n", ip_header->protocol);
